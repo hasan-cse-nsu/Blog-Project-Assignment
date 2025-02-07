@@ -1,17 +1,24 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
-import MenuBar from "../components/MenuBar";
-import AboutPage from "./AboutPage";
-import FooterBar from "../components/FooterBar";
+import React, { useEffect, useState } from "react";
+import Layout from "../Layout/Layout";
+import SliderSection from "../components/SliderSection";
+import { getAllBlogs } from "../apiRequest/api";
 
 const HomePage = () => {
+  let [list, setList] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      let res = await getAllBlogs();
+      setList(res);
+    })();
+  }, []);
+
   return (
     <>
-      <MenuBar />
-
-      <AboutPage />
-
-      <FooterBar />
+      <Layout>
+        <SliderSection list={list} />
+      </Layout>
     </>
   );
 };

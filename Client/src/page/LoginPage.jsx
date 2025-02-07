@@ -1,17 +1,15 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import MenuBar from "../components/MenuBar";
 import LoginForm from "./../components/LoginForm";
-import FooterBar from "../components/FooterBar";
+import Layout from "../Layout/Layout";
 
 const LoginPage = () => {
   return (
     <>
-      <MenuBar />
-      
-      <LoginForm />
+      <Layout>
+        <LoginForm />
+      </Layout>
 
-      <FooterBar />
     </>
   );
 };
