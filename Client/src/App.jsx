@@ -5,6 +5,7 @@ import BlogPage from "./page/BlogPage";
 import AboutPage from "./page/AboutPage";
 import ContactPage from "./page/ContactPage";
 import ServicePage from "./page/ServicePage";
+import DashboardPage from "./page/DashboardPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/service" element={<ServicePage />} />
           <Route exact path="/about" element={<AboutPage />} />
           <Route exact path="/contact" element={<ContactPage />} />
+          <Route exact path="/dashboard" element={<DashboardPage />} />
         </Routes>
       </BrowserRouter>
     </>

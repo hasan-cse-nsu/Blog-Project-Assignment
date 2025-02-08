@@ -17,38 +17,95 @@ const MenuBar = () => {
               />
             </div>
           </div>
-          <div className="col-span-7">
+          <div className="col-span-6">
             <nav className="flex justify-center">
-              <ul className="flex py-[10px] gap-[15px]">
-                <li className="px-[16px] py-[8px] bg-gray-700 rounded-md">
-                  <NavLink to="/" className="text-white">
+              <ul className="flex py-[10px]">
+                <li className="px-[16px] py-[8px] rounded-md">
+                  <NavLink
+                    to="/"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "px-[16px] py-[8px] bg-gray-700 text-white rounded-md"
+                        : "px-[16px] py-[8px] bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300"
+                    }
+                  >
                     Home
                   </NavLink>
                 </li>
-                <li className="px-[16px] py-[8px] bg-gray-200 rounded-md">
-                  <NavLink to="/blog">Blog</NavLink>
+
+                <li className="px-[16px] py-[8px] rounded-md">
+                  <NavLink
+                    to="/blog"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "px-[16px] py-[8px] bg-gray-700 text-white rounded-md"
+                        : "px-[16px] py-[8px] bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300"
+                    }
+                  >
+                    Blog
+                  </NavLink>
                 </li>
-                <li className="px-[16px] py-[8px] bg-gray-200 rounded-md">
-                  <NavLink to="/service">Service</NavLink>
+
+                <li className="px-[16px] py-[8px] rounded-md">
+                  <NavLink
+                    to="/service"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "px-[16px] py-[8px] bg-gray-700 text-white rounded-md"
+                        : "px-[16px] py-[8px] bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300"
+                    }
+                  >
+                    Service
+                  </NavLink>
                 </li>
-                <li className="px-[16px] py-[8px] bg-gray-200 rounded-md">
-                  <NavLink to="/about">About</NavLink>
+
+                <li className="px-[16px] py-[8px] rounded-md">
+                  <NavLink
+                    to="/about"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "px-[16px] py-[8px] bg-gray-700 text-white rounded-md"
+                        : "px-[16px] py-[8px] bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300"
+                    }
+                  >
+                    About
+                  </NavLink>
                 </li>
-                <li className="px-[16px] py-[8px] bg-gray-200 rounded-md">
-                  <NavLink to="/contact">Contact</NavLink>
+
+                <li className="px-[16px] py-[8px] rounded-md">
+                  <NavLink
+                    to="/contact"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "px-[16px] py-[8px] bg-gray-700 text-white rounded-md"
+                        : "px-[16px] py-[8px] bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300"
+                    }
+                  >
+                    Contact
+                  </NavLink>
                 </li>
               </ul>
             </nav>
           </div>
-          <div className="col-span-3">
-            <div className="py-[12px]">
-              <Link
-                to="/login"
-                className="px-[16px] py-[8px] bg-purple-700 text-white rounded-md"
-              >
-                Login
-              </Link>
-            </div>
+          <div className="col-span-4">
+            <nav className="flex justify-center gap-[30px]">
+              <div className="py-[12px]">
+                <Link
+                  to="/dashboard"
+                  className="px-[16px] py-[8px] bg-purple-700 text-white rounded-md"
+                >
+                  Dashboard
+                </Link>
+              </div>
+              <div className="py-[12px]">
+                <Link
+                  to="/login"
+                  className="px-[16px] py-[8px] bg-purple-700 text-white rounded-md"
+                >
+                  Login
+                </Link>
+              </div>
+            </nav>
           </div>
         </div>
       </div>

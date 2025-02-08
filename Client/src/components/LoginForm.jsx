@@ -1,53 +1,88 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useState } from "react";
 
 const LoginForm = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (email === "blogproject@gmail.com" && password === "qwerty") {
+      handleLogin();
+    } else {
+      alert("Login Unsuccessfull.");
+    }
+  };
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
   return (
-    <>
-      <section className="bg-gray-100 min-h-screen flex justify-center items-center">
-        <div
-          id="login"
-          className="w-64 h-80 bg-indigo-50 rounded shadow flex flex-col justify-between p-3"
-        >
-          <form className="text-indigo-500" action="" method="post">
-            <fieldset className="border-4 border-dotted border-indigo-500 p-5">
-              <legend className="px-2 italic -mx-2">Welcome again!</legend>
-              <label
-                className="text-xs font-bold after:content-['*'] after:text-red-400"
-                htmlFor="email"
-              >
-                Mail{" "}
-              </label>
-              <input
-                className="w-full p-2 mb-2 mt-1 outline-none ring-none focus:ring-2 focus:ring-indigo-500"
-                type="email"
-                required=""
-              />
-              <label
-                className="text-xs font-bold after:content-['*'] after:text-red-400"
-                htmlFor="password"
-              >
-                Password
-              </label>
-              <input
-                className="w-full p-2 mb-2 mt-1 outline-none ring-none focus:ring-2 focus:ring-indigo-500"
-                type="password"
-                required=""
-              />
-              <a
-                href="#"
-                className="block text-right text-xs text-indigo-500 text-right mb-4"
-              >
-                Forgot Password?
-              </a>
-              <button className="w-full rounded bg-indigo-500 text-indigo-50 p-2 text-center font-bold hover:bg-indigo-400">
-                Log In
-              </button>
-            </fieldset>
-          </form>
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-sm">
+        <h2 className="text-2xl font-semibold text-center text-gray-700 mb-6">
+          Login
+        </h2>
+
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-600"
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="w-full mt-2 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              placeholder="Enter your email"
+            />
+          </div>
+
+          <div className="mb-6">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-600"
+            >
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className="w-full mt-2 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              placeholder="Enter your password"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full py-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            Login
+          </button>
+        </form>
+
+        <div className="mt-4 text-center">
+          <span className="text-sm text-gray-600">Don't have an account?</span>
+          <a href="#" className="text-sm text-blue-600 hover:underline">
+            Sign Up
+          </a>
         </div>
-      </section>
-    </>
+      </div>
+    </div>
   );
 };
 
